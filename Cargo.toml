@@ -69,6 +69,7 @@ members = [
 	"frame/benchmark",
 	"frame/collective",
 	"frame/contracts",
+	"frame/pallet-escrow-gateway",
 	"frame/contracts/rpc",
 	"frame/contracts/rpc/runtime-api",
 	"frame/democracy",

@@ -49,6 +49,7 @@ pallet-authorship = { version = "2.0.0-rc5", default-features = false, path = ".
 pallet-babe = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/babe" }
 pallet-balances = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/balances" }
 pallet-collective = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/collective" }
+escrow-gateway = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/pallet-escrow-gateway" }
 pallet-contracts = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/contracts" }
 pallet-contracts-primitives = { version = "2.0.0-rc5", default-features = false, path = "../../../frame/contracts/common/" }
 pallet-contracts-rpc-runtime-api = { version = "0.8.0-rc5", default-features = false, path = "../../../frame/contracts/rpc/runtime-api/" }
@@ -98,6 +99,7 @@ std = [
 	"sp-block-builder/std",
 	"codec/std",
 	"pallet-collective/std",
+	"escrow-gateway/std",
 	"pallet-contracts/std",
 	"pallet-contracts-primitives/std",
 	"pallet-contracts-rpc-runtime-api/std",
