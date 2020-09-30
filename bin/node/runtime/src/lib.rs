@@ -648,6 +648,24 @@ impl pallet_sudo::Trait for Runtime {
 	type Call = Call;
 }
 
+impl pallet_escrow_gateway::EscrowTrait for Runtime {
+	type Currency = Balances;
+	type Time = Timestamp;
+}
+
+parameter_types! {
+    pub const WhenStateChangedForceTry: bool = false;
+}
+
+impl pallet_escrow_gateway::Trait for Runtime {
+	type Event = Event;
+	type WhenStateChangedForceTry = WhenStateChangedForceTry;
+}
+
+impl pallet_escrow_gateway_balances::Trait for Runtime {
+	type Event = Event;
+}
+
 parameter_types! {
 	pub const SessionDuration: BlockNumber = EPOCH_DURATION_IN_SLOTS as _;
 	pub const ImOnlineUnsignedPriority: TransactionPriority = TransactionPriority::max_value();
@@ -871,6 +889,8 @@ construct_runtime!(
 		Grandpa: pallet_grandpa::{Module, Call, Storage, Config, Event, ValidateUnsigned},
 		Treasury: pallet_treasury::{Module, Call, Storage, Config, Event<T>},
 		Contracts: pallet_contracts::{Module, Call, Config, Storage, Event<T>},
+		EscrowGatewayBalances: pallet_escrow_gateway_balances::{Module, Call, Storage, Event<T>},
+		EscrowGateway: pallet_escrow_gateway::{Module, Call, Storage, Event<T>},
 		Sudo: pallet_sudo::{Module, Call, Config<T>, Storage, Event<T>},
 		ImOnline: pallet_im_online::{Module, Call, Storage, Event<T>, ValidateUnsigned, Config<T>},
 		AuthorityDiscovery: pallet_authority_discovery::{Module, Call, Config},
